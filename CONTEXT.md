@@ -18,43 +18,21 @@ This plugin tracks the rate at which the selected model generates output tokens,
 - Displays: tokens/sec, total output tokens, model name
 - Non-intrusive temporary notification
 
-## Installation
+## Design Decisions
 
-### Global Installation
+| Decision | Choice |
+|----------|--------|
+| Measurement scope | Per-message rate only |
+| Time tracking | Uses `time.created` and `time.completed` from AssistantMessage |
+| Display method | Toast notification |
+| Metrics shown | tokens/sec + output tokens + model name |
+| Configuration | No config for v1 |
 
-```bash
-npm install -g opencode-tokens-per-second
-```
+## Events Used
 
-Then add to your OpenCode config (`~/.config/opencode/opencode.json`):
+- `message.updated`: Captures assistant message completion with token counts and timing
+- `session.status`: Optional future use for session-level metrics
 
-```json
-{
-  "plugins": ["opencode-tokens-per-second"]
-}
-```
+## Implementation Notes
 
-### Project-local Installation
-
-```bash
-npm install opencode-tokens-per-second
-```
-
-Then add to your project's `opencode.json`:
-
-```json
-{
-  "plugins": ["opencode-tokens-per-second"]
-}
-```
-
-## Development
-
-```bash
-npm run build
-npm run watch
-```
-
-## License
-
-MIT
+The plugin uses the OpenCode plugin SDK to hook into message events and calculate rates from the timing data embedded in assistant messages.

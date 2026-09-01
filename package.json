@@ -1,0 +1,18 @@
+{
+  "name": "opencode-tokens-per-second",
+  "version": "1.0.0",
+  "description": "OpenCode plugin that measures and displays tokens per second for model responses",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc",
+    "watch": "tsc --watch"
+  },
+  "dependencies": {
+    "@opencode-ai/plugin": "^1.0.0",
+    "@opencode-ai/sdk": "^1.0.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.0.0"
+  },
+  "type": "module"
+}
