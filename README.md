@@ -8,6 +8,10 @@ This is a plugin for OpenCode that measures and displays tokens per second for m
 
 It shows a toast notification when each assistant message completes.
 
+## Demo
+
+https://github.com/user-attachments/assets/8392db02-0ede-40d0-9eca-ed228cdac1b4
+
 ## Installation
 
 Add the plugin to `~/.config/opencode/opencode.jsonc`:
