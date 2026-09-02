@@ -105,6 +105,15 @@ dist
 **/.vitepress/cache
 
 # Docusaurus cache and generated files
+# Build output
+dist/
+*.tsbuildinfo
+
+# npm pack
+*.tgz
+
+# Node modules (keep for clarity)
+node_modules/
 .docusaurus
 
 # Serverless directories
