@@ -1,60 +1,19 @@
 # opencode-tokens-per-second
 
-A plugin for OpenCode that measures and displays tokens per second for model responses.
-
-## Overview
-
-This plugin tracks the rate at which the selected model generates output tokens, excluding idle time (tool use, waiting, etc.).
-
-## What We Measure
+This is a plugin for OpenCode that measures and displays tokens per second for model responses. You can use it to test and compare the speed of various models. Here is what's measured:
 
 - **Tokens per second**: Calculated as `output_tokens / (time.completed - time.created)` for each assistant message
 - **Active only**: Only counts time when the model is producing output, not tool execution or idle periods
 - **Per-message**: Reports rate for each model response individually
 
-## Display
-
-- Shows toast notification when each assistant message completes
-- Displays: tokens/sec, total output tokens, model name
-- Non-intrusive temporary notification
+It shows a toast notification when each assistant message completes.
 
 ## Installation
 
-### Global Installation
-
-```bash
-npm install -g opencode-tokens-per-second
-```
-
-Then add to your OpenCode config (`~/.config/opencode/opencode.json`):
+Add the plugin to `~/.config/opencode/opencode.jsonc`:
 
 ```json
 {
-  "plugins": ["opencode-tokens-per-second"]
+  "plugin": ["opencode-tokens-per-second@latest"]
 }
 ```
-
-### Project-local Installation
-
-```bash
-npm install opencode-tokens-per-second
-```
-
-Then add to your project's `opencode.json`:
-
-```json
-{
-  "plugins": ["opencode-tokens-per-second"]
-}
-```
-
-## Development
-
-```bash
-npm run build
-npm run watch
-```
-
-## License
-
-MIT
